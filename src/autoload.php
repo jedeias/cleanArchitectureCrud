@@ -10,6 +10,7 @@ function autoload($className) {
         "app/infrastructure/database/",
         "app/infrastructure/persistence/",
         "app/domain/Entities/",
+        "app/domain/Entities/validations/",
         "app/domain/UseCases/User/",
         "app/domain/UseCases/Note/",
         "app/domain/Repositories/"
