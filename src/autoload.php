@@ -10,10 +10,19 @@ function autoload($className) {
         "app/infrastructure/database/",
         "app/infrastructure/persistence/",
         "app/domain/Entities/",
-        "app/domain/Entities/validations/",
+        "app/domain/useCases/validations/",
         "app/domain/UseCases/User/",
         "app/domain/UseCases/Note/",
-        "app/domain/Repositories/"
+        "app/domain/Repositories/",
+        "app/domain/UseCases/interfaces/Note/",
+        "app/domain/useCases/interfaces/people/",
+        "app/domain/useCases/interfaces/authentication/",
+        "src/infrastructure/repositores/",
+        "src/infrastructure/medwares/",
+        "src/infrastructure/authentication/",
+        "src/infrastructure/people/",
+        "app/domain/useCases/interfaces/",
+        "infrastructure/repositores/"
     );
 
     foreach ($dirs as $dir) {

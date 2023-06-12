@@ -23,10 +23,10 @@ CREATE TABLE people (
 
 CREATE TABLE notes (
     pkNotes INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    pkPeople INT NOT NULL,
+    fkPeople INT NOT NULL,
     notes TEXT NOT NULL,
     date DATETIME,
-    FOREIGN KEY (pkPeople) REFERENCES people(pkPeople)
+    FOREIGN KEY (fkPeople) REFERENCES people(pkPeople)
 ) CHARACTER SET utf8;
 
 
@@ -68,9 +68,118 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+DELIMITER $$
+
+CREATE  login(
+
+    IN _email VARCHAR(80),
+    IN _password VARCHAR(12)
+
+)
+BEGIN
+
+    SELECT * FROM people WHERE email = _email and password = _password;
+
+    COMMIT;
+
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
 CALL insertPerson("testson", "test@test.com", "password", "M", 2);
+
+
+DELIMITER $$
+
+CREATE PROCEDURE selectPeople()
+
+BEGIN
+
+    SELECT * FROM people;
+
+    COMMIT;
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
+CALL selectPeople();
+
 
 SELECT * FROM people;
 SELECT * FROM accessLevel;
 SELECT * FROM notes;
+
+CALL login("test@test.com", "password");
+
+
+DELIMITER $$
+
+CREATE PROCEDURE deletePerson(
+
+    IN _ID int
+
+)
+
+BEGIN 
+
+    DELETE FROM notes WHERE fkPeople = _ID;
+    DELETE FROM people WHERE pkPeople = _ID;
+
+
+    COMMIT;
+
+        ROLLBACK;
+
+END $$
+
+DELIMITER;
+
+DELIMITER $$
+
+CREATE PROCEDURE updatePerson(
+    IN _pkPeople INT,
+    IN _email VARCHAR(80),
+    IN _name VARCHAR(100),
+    IN _password VARCHAR(12),
+    IN _sex VARCHAR(1), 
+    IN _fkAccessLevel INT
+)
+BEGIN
+    UPDATE people 
+    SET email = _email, 
+        name = _name, 
+        password = _password, 
+        sex = _sex, 
+        fkAccessLevel = _fkAccessLevel 
+    WHERE pkPeople = _pkPeople;
+
+    COMMIT;
+
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE PROCEDURE selectByEmail(
+    IN _email VARCHAR(80)
+)
+BEGIN
+    SELECT * FROM people WHERE email = _email;
+
+    COMMIT;
+
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
 

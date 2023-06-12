@@ -3,7 +3,7 @@
 class ValidateSex extends Validation{
 
     public function characterCheck($sex) {
-        if ($sex !== "M" ||$sex !== "F" ) {
+        if ($sex !== "M" AND $sex !== "F" ) {
             return "invalid";
         }
 

@@ -13,23 +13,20 @@
         <?php
          
             require_once ("../src/autoload.php");
-    
-            class Preson extends People{
-
-            }
             
-            $preson = new Preson(); 
+            $person = new Person(); 
             
-            $preson->setName("joaquim");
+            $person->setName("joaquim");
 
-            $preson->setEmail("test@asdasdasda.com");
+            $person->setEmail("tests@test.com");
 
-            $preson->setPassword("0123456789000");
+            $person->setPassword("0123456789000");
 
-            $preson->setSex("O");
+            $person->setSex("M");
 
-            var_dump($preson);
+            var_dump($person);
 
+            
         ?>
         
     </pre>
