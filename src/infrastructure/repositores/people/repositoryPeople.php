@@ -1,7 +1,5 @@
 <?php
 
-require_once ("../../../autoload.php");
-
 class RepositoryPeople extends Repository implements repositoryPeopleInterface{
 
     private $connect; 
@@ -119,45 +117,6 @@ class RepositoryPeople extends Repository implements repositoryPeopleInterface{
             return []; 
         }
     }
-
 }
-
-$repository = new RepositoryPeople();
-
-$peopleList = $repository->selectPeople();
-
-echo"<pre>";
-var_dump($peopleList);
-
-echo"<hr>";
-
-$login = $repository->authentication("test@test.com", "password");
-
-echo"<pre>";
-var_dump($login);
-
-
-echo"<hr>";
-
-$person = new Person("testson", "test@test.com", "password", "M", "2");
-
-$getPkPerson = $repository->getIdByEmail($person);
-
-
-var_dump($getPkPerson);
-
-$jose = new Person("jose", "jose@jose.com", "password", "M", "1");
-
-//$repository->save($jose);
-
-echo"<hr>";
-
-$jose->setName("jose carlos andrade");
-
-$repository->update($jose);
-
-$pk2 = $repository->getById(2);
-
-var_dump($pk2);
 
 ?>

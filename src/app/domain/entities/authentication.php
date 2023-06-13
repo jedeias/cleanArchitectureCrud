@@ -2,29 +2,35 @@
 
 
 abstract class Authentication implements repositoryAuthenticationInterface {
-    private $name;
+    private $email;
     private $password;
     
-	public function getName() {
-		return $this->name;
-	}
-	
-	public function setName($name): self {
-		$this->name = $name;
-		return $this;
-	}
-	
+
 	public function getPassword() {
 		return $this->password;
 	}
 	
 	public function setPassword($password): self {
-		$this->password = $password;
+
+		$validation = new ValidatePassword();
+
+		$this->password = $validation->characterCheck($password);
 		return $this;
 	}
 	
-    public abstract function authentication($emial, $password);
+    public abstract function login();
 
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function setEmail($email): self {
+		
+		$validation = new ValidateEmail();
+
+		$this->email = $validation->characterCheck($email);;
+		return $this;
+	}
 }
 
 ?>
