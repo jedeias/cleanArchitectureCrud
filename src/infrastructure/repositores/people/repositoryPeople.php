@@ -10,23 +10,37 @@ class RepositoryPeople extends Repository implements repositoryPeopleInterface{
         $this->connect = new Connect();
     }
 
-    public function getById($id){
+    public function getById($id) : array{
+
+        try {
+
+            $stmt = $this->connect->getConnect()->prepare("CALL getById (:pkPeople)");
+            $stmt->bindValue(':pkPeople', $id);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        } catch (PDOException $e) {
+            foreach ($e as $key) {
+                echo"$key";
+            }
+            return ["error"]; 
+        }
 
     }
 
-    public function getIdByEmail(Person $person){
+    public function getIdByEmail(Person $person) : array{
         try {
 
             $stmt = $this->connect->getConnect()->prepare("CALL selectByEmail (:email)");
             $stmt->bindValue(':email', $person->getEmail());
             $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         } catch (PDOException $e) {
             foreach ($e as $key) {
                 echo"$key";
             }
-            return []; 
+            return ["error"]; 
         }
     }
 
@@ -45,8 +59,19 @@ class RepositoryPeople extends Repository implements repositoryPeopleInterface{
     }
     
     public function update(object $object) : void{
-
-        
+        //var_dump($this->getIdByEmail($object));
+        try {
+            $stmt = $this->connect->getConnect()->prepare("CALL updatePerson(:pkPeople ,:email, :name, :password, :sex, :accessLevel)");
+            $stmt->bindValue(':pkPeople', $this->getIdByEmail($object)["pkPeople"]);
+            $stmt->bindValue(':email', $object->getEmail());
+            $stmt->bindValue(':name', $object->getName());
+            $stmt->bindValue(':password', $object->getPassword());
+            $stmt->bindValue(':sex', $object->getSex());
+            $stmt->bindValue(':accessLevel', $object->getAccessLevel());
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
 
     }
 
@@ -118,11 +143,21 @@ $person = new Person("testson", "test@test.com", "password", "M", "2");
 
 $getPkPerson = $repository->getIdByEmail($person);
 
-echo"<pre>";
+
 var_dump($getPkPerson);
 
 $jose = new Person("jose", "jose@jose.com", "password", "M", "1");
 
-$repository->save($jose);
+//$repository->save($jose);
+
+echo"<hr>";
+
+$jose->setName("jose carlos andrade");
+
+$repository->update($jose);
+
+$pk2 = $repository->getById(2);
+
+var_dump($pk2);
 
 ?>

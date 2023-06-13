@@ -166,6 +166,7 @@ END $$
 
 DELIMITER ;
 
+CALL updatePerson ("1","test@test.com", "testPerson", "password", "F", "2");
 
 DELIMITER $$
 
@@ -177,6 +178,24 @@ BEGIN
 
     COMMIT;
 
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE PROCEDURE getById(
+
+    IN _pkPeople INT
+)
+BEGIN
+
+    SELECT * FROM people WHERE pkPeople = _pkPeople;
+
+    COMMIT;
         ROLLBACK;
 
 END $$
