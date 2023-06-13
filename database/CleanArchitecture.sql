@@ -71,23 +71,22 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE  login(
-
+CREATE PROCEDURE login(
     IN _email VARCHAR(80),
     IN _password VARCHAR(12)
-
 )
 BEGIN
-
-    SELECT * FROM people WHERE email = _email and password = _password;
+    SELECT * FROM people WHERE email = _email AND password = _password;
 
     COMMIT;
-
         ROLLBACK;
 
 END $$
 
 DELIMITER ;
+
+CALL login("test@test.com", "password");
+
 
 CALL insertPerson("testson", "test@test.com", "password", "M", 2);
 
@@ -114,7 +113,6 @@ SELECT * FROM people;
 SELECT * FROM accessLevel;
 SELECT * FROM notes;
 
-CALL login("test@test.com", "password");
 
 
 DELIMITER $$
