@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #000;
+}
+
+
+form{
+    background-color:#fff;
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15%;
+    width: 50%;
+    border-radius: 7px;
+    height: 40vh;
+    box-shadow: 1px 1px 1px 1px #fff;
+}
+
+
+input{
+    padding: 10px;
+    width: 59%;
+    border-radius: 7px;
+    border: 1px solid black;
+    box-shadow: 1px 1px #000;
+    background: rgb(211, 207, 207);
+}
+
+.email{
+    padding: 10px;
+}
+
+.senha{
+    padding: 10px;
+}
+
+input:focus{
+    outline: none;
+
+}
+
+
+label{
+    color: #fff;
+}
+
+
+.btn{
+    background: rgb(145, 7, 145);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #000;
+    width: 50%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 7px;
+}
+
+.btn:hover{
+    background: rgb(215, 12, 215);
+    opacity: 1;
+   
+    animation: animer 1s ease;
+}
+
+@keyframes animer{
+    0%{
+        transform: translateY(13%);
+    }
+
+    25%{
+        transform: translateY(4%);
+    }
+
+    50%{
+        transform: translateX(5%);
+    }
+
+    100%{
+        transform: translate(10%);
+    }
+}
+

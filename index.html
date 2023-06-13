@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/interfaces/view/UX/css/index.css">
     <title>Authentication</title>
 </head>
 <body>
@@ -10,22 +11,22 @@
     <section>
 
         <form action="src/main.php" method="post" enctype="multipart/form-data">
-
-            <div>
+            <h1 class="h1">Login</h1>
+            <div class="email">
 
                 <input type="emial" name="email" required placeholder="exemple@exemple.com" maxlength="80">
 
             </div>
 
-            <div>
+            <div class="senha">
 
                 <input type="password" name="password" required placeholder="your password" maxlength="12">
 
             </div>
 
-            <div>
+            <div >
 
-                <button type="submit">
+                <button class="btn" type="submit">
                     Send
                 </button>
 
