@@ -13,6 +13,7 @@ class Connect extends Host{
 	public function getConnect() {
 		return $this->connect;
 	}
+
 }
 
 ?>
