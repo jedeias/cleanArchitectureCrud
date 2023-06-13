@@ -18,11 +18,12 @@ function autoload($className) {
         "app/domain/useCases/interfaces/people/",
         "app/domain/useCases/interfaces/authentication/",
         "src/infrastructure/repositores/",
-        "src/infrastructure/medwares/",
+        "infrastructure/repositores/people/",
         "src/infrastructure/authentication/",
         "src/infrastructure/people/",
         "app/domain/useCases/interfaces/",
-        "infrastructure/repositores/"
+        "infrastructure/repositores/",
+        "infrastructure/repositores/authentication/"
     );
 
     foreach ($dirs as $dir) {
