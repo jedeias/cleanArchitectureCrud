@@ -18,16 +18,20 @@ class Login extends Authentication{
         
         $person = $person[0];
         
-        var_dump($person);
 
         if($person == null){
             echo"<h1>Account not found. Please verify your email and password.<h1>";
 
-            header("Location: ../../../../");
+            header("Refresh: 3 url='/cleanArchitectureCrud'");
         }
+
 
         if($this->getEmail() == $person['email'] && $this->getPassword() == $person['password']){
             $user = new Person($person['name'], $person['email'], $person['password'], $person['sex'], $person['fkAccessLevel']);
+
+            $session = new Session();
+
+            $session->set("user", $user);
 
             header("Location: interfaces/view/noteList.php");
         
@@ -37,9 +41,4 @@ class Login extends Authentication{
 
 }
 
-$login = new Login("jose@jose.com", "password");
-
-$login->login();
-
-
-?>
+?> 

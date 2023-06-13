@@ -23,7 +23,9 @@ function autoload($className) {
         "src/infrastructure/people/",
         "app/domain/useCases/interfaces/",
         "infrastructure/repositores/",
-        "infrastructure/repositores/authentication/"
+        "infrastructure/repositores/authentication/",
+        "src/interfaces/middleware/",
+        "app/domain/useCases/",
     );
 
     foreach ($dirs as $dir) {
