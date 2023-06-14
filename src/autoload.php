@@ -25,6 +25,7 @@ function autoload($className) {
         "infrastructure/repositores/",
         "infrastructure/repositores/authentication/",
         "interfaces/middleware/",
+        "interfaces/controller/",
         "interfaces/model/middleware/",
         "app/domain/useCases/",
     );

@@ -1,6 +1,6 @@
 <?php
 
-class RepositoryPeopleMid{
+class RepositoryPeopleMid implements RepositoryPeopleMidInterface{
 
     private repositoryPeopleInterface $repository;
 
