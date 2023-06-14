@@ -12,19 +12,19 @@
 
         <?php
          
-            require_once ("../src/autoload.php");
+            // require_once ("../src/autoload.php");
             
-            $person = new Person(); 
+            // $person = new Person(); 
             
-            $person->setName("joaquim");
+            // $person->setName("joaquim");
 
-            $person->setEmail("tests@test.com");
+            // $person->setEmail("tests@test.com");
 
-            $person->setPassword("0123456789000");
+            // $person->setPassword("0123456789000");
 
-            $person->setSex("M");
+            // $person->setSex("M");
 
-            var_dump($person);
+            // var_dump($person);
 
             
         ?>

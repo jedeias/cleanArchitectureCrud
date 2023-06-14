@@ -25,7 +25,7 @@ CREATE TABLE notes (
     pkNotes INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fkPeople INT NOT NULL,
     notes TEXT NOT NULL,
-    date DATETIME,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (fkPeople) REFERENCES people(pkPeople)
 ) CHARACTER SET utf8;
 
@@ -135,7 +135,7 @@ BEGIN
 
 END $$
 
-DELIMITER;
+DELIMITER ;
 
 DELIMITER $$
 
@@ -200,3 +200,112 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE insertNotes(
+    IN _fkPeople INT,
+    IN _notes TEXT
+)
+BEGIN
+    INSERT INTO notes (fkPeople, notes, date)
+    VALUES (_fkPeople, _notes, DEFAULT);
+
+    COMMIT;
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
+CALL insertNotes (1, "this is a test of notes procidure");
+
+
+DELIMITER $$
+
+CREATE PROCEDURE selectNotes()
+
+BEGIN
+
+    SELECT * FROM notes
+    INNER JOIN people on (notes.fkPeople = people.pkPeople);
+
+    COMMIT;
+        ROLLBACK;
+    
+END $$
+
+DELIMITER ;
+
+
+CALL selectNotes();
+
+DELIMITER $$
+
+CREATE PROCEDURE selectNoteByID(
+
+    IN _pkNotes INT
+
+)
+
+BEGIN
+
+    SELECT * FROM notes
+    INNER JOIN people on (notes.fkPeople = people.pkPeople)
+    WHERE pkNotes = _pkNotes;
+
+    COMMIT;
+        ROLLBACK;
+    
+END $$
+
+DELIMITER ;
+
+CALL selectNoteById(1);
+
+DELIMITER $$
+
+CREATE PROCEDURE updateNote(
+    IN _pkNotes INT,
+    IN _notes TEXT,
+    IN _date DATETIME
+)
+BEGIN
+    START TRANSACTION;
+    
+    UPDATE notes 
+    SET notes = _notes, date = _date 
+    WHERE pkNotes = _pkNotes;
+    
+    COMMIT;
+END $$
+
+DELIMITER ;
+
+CALL updateNote(1, "this is a test of update notes", NOW());
+
+CAll selectNotes();
+
+
+DELIMITER $$
+
+CREATE PROCEDURE deleteNotes(
+    IN _pkNotes INT
+)
+BEGIN 
+
+    DELETE FROM notes WHERE pkNotes = _pkNotes;
+
+    COMMIT;
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
+CALL deleteNotes(1);
+
+CALL selectNotes();
+
+CALL insertNotes (1, "this is a test of notes procidure");
+
+CALL selectNotes();
