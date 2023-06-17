@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+@media screen and (max-width: 601px) {
+
+    body{
+        background-color: #c0b19e;
+    }
+
+    .conteiner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    input{
+        border-radius: 6px;
+        width: 50vw;
+        height: 5vh;
+        text-align: center;
+    }
+    
+    .email, .senha{
+        margin-top: 3px;
+        margin-bottom: 3px;
+        background-color: rgba(240, 248, 255, 0.341);
+        border-radius: 8px;
+    }
+
+    div{        
+        padding: 8px;
+    }
+
+    .email:hover, 
+    .senha:hover {
+        background-color: rgba(119, 134, 235, 0.341);
+    }
+
+    button {
+        position: fixed;
+        bottom: -10px;
+        left: -10px;
+        margin: -10px;
+        border-radius:  100%;
+        height: 70px;
+        width: 70px;
+
+    }
+
+    button {
+        background-image: linear-gradient(to right, rgb(224, 118, 118), transparent);
+        background-size: 200% auto;
+        transition: background-position 0.5s linear;
+
+    }
+    
+    button:hover {
+        background-position: 100% center;
+    }
+}
