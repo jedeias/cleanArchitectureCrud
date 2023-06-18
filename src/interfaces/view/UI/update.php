@@ -4,6 +4,8 @@ require_once ("../../../autoload.php");
 
 $session = new Session();
 
+$session->verifySession();
+
 $user = $session->get("user");
 
 $repository = new RepositoryPeopleMid();
