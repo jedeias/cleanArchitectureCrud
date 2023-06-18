@@ -5,7 +5,7 @@
     
 }
 
-@media screen and (max-width: 601px) {
+@media screen and (min-width: 602px) {
 
     body{
         background-color: #c0b19e;

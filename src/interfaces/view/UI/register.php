@@ -37,6 +37,7 @@ if($_POST != null){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../UX/css/style.css" media="screen and (max-width: 601px)">
+    <link rel="stylesheet" href="../UX/css/styleDesktop.css" media="screen and (min-width: 602px)">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Register new person</title>
 </head>
