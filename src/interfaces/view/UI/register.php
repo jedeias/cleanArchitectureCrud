@@ -4,6 +4,8 @@ require_once ("../../../autoload.php");
 
 $session = new Session();
 
+$session->verifySession();
+
 $user = $session->get("user");
 
 echo "<pre>";
@@ -20,6 +22,10 @@ if($_POST != null){
 
     $repository->savePerson($person);
 
+    echo"<script>alert('user save was a sucessful')</script>";
+
+    header("Location: ../noteList.php");
+
 }
 
 
@@ -30,30 +36,31 @@ if($_POST != null){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../UX/css/style.css" media="screen and (max-width: 601px)">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Register new person</title>
 </head>
 <body>
     
-    <section>
+    <section class="conteiner">
 
         <form action="" method="post" enctype="multipart/form-data">
 
             <div>
 
-                <input type="emial" name="email" required placeholder="exemple@exemple.com" maxlength="80">
+                <input type="emial" class="email" name="email" required placeholder="exemple@exemple.com" maxlength="80">
 
             </div>
 
             <div>
 
-                <input type="text" name="name" required placeholder="user name" maxlength="100">
+                <input type="text" name="name" class="email" required placeholder="user name" maxlength="100">
 
             </div>
 
             <div>
 
-                <input type="password" name="password" required placeholder="your password (****)" maxlength="12">
+                <input type="password" name="password" class="password" required placeholder="your password (****)" maxlength="12">
 
             </div>
 

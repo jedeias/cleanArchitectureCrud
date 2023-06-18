@@ -4,13 +4,13 @@ require_once ("../../autoload.php");
 
 $session = new Session();
 
+$session->verifySession();
+
 $user = $session->get("user");
 
 $repository = new RepositoryPeopleMid();
 
 $peopleArray = $repository->selectAllPeople();
-
-
 
 ?>
 
@@ -18,55 +18,64 @@ $peopleArray = $repository->selectAllPeople();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="UX/CSS/userList.css" media="screen and (max-width: 601px)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note List</title>
 </head>
 <body>
 
-    <a href="UI/register.php">
-        <button type="submit">
-            Register
-        </button>
-    </a>
+    <section class="container">
 
-    <table border="1 solid">
-
-        <thead>
-            <th>COD</th>
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <th>PASSWORD</th>
-            <th>SEX</th>
-            <th>ACCESS LEVEL</th>
-            <th>UPDATE</th>
-            <th>DELETE</th>
-            
-            
-        </thead>
         
-        <?php
+        <table>
+            
+            <thead>
+                <th>COD</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th class="optinal">PASSWORD</th>
+                <th class="optinal">SEX</th>
+                <th class="optinal">ACCESS LEVEL</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+                
+            </thead>
+            
+            <?php
 
-            foreach ($peopleArray as $person){
-                echo "<tr>";
-                echo "<td>{$person['pkPeople']}</td>";
-                echo "<td>{$person['name']}</td>";
-                echo "<td>{$person['email']}</td>";
-                echo "<td>{$person['password']}</td>";
-                echo "<td>{$person['sex']}</td>";
-                echo "<td>{$person['fkAccessLevel']}</td>";
-                echo "<td>
-                        <form method='GET' action='UI/update.php'>
-                            <input type='hidden' name='pkPeople' value='{$person['pkPeople']}'>
-                            <button type='submit'>UPDATE</button>
-                        </form>
+                foreach ($peopleArray as $person){
+                    echo "<tr>";
+                    echo "<td>{$person['pkPeople']}</td>";
+                    echo "<td>{$person['name']}</td>";
+                    echo "<td>{$person['email']}</td>";
+                    echo "<td class='optinal'>{$person['password']}</td>";
+                    echo "<td class='optinal'>{$person['sex']}</td>";
+                    echo "<td class='optinal'>{$person['fkAccessLevel']}</td>";
+                    echo "<td>
+                    <form method='GET' action='UI/update.php'>
+                    <input type='hidden' name='pkPeople' value='{$person['pkPeople']}'>
+                    <button type='submit'>UPDATE</button>
+                    </form>
                     </td>";
-                echo "<td><a href=''><button>DELETE</button></a></td>";
-                echo "</tr>";
-            }
+                    echo "<td><a href=''><button>DELETE</button></a></td>";
+                    echo "</tr>";
+                }
 
-        ?>
+            ?>
+        </table>    
+    </section>
 
-</table>    
+
+    <footer>
+        <article class="menuBar" id="trigger" onclick="trigger()">
+
+            <img class="homeSvg" src="UX/img/home.svg" alt="home">
+            <div class="inner"></div>
+        </article>
+    </footer>
+
+    <script src="UX/JS/menuBar.js"></script>
+    <script src="UX/JS/resposen.js"></script>
 
 </body>
 </html>

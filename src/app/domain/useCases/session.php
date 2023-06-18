@@ -20,6 +20,15 @@ class Session implements sessionInterface{
     final function destroy() : void{
         session_destroy();
     }
+
+    final function verifySession() : void{
+        if($_SESSION == null){
+            $this->destroy();
+            echo "Make the authentication";
+            die(header("Refresh: 3 url='/cleanArchitectureCrud'"));
+        }
+    }
+
 }
 
 ?>
