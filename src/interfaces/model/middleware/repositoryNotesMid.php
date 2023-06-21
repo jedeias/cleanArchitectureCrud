@@ -24,6 +24,12 @@ class RepositoryNotesMid{
         return $this->repository->getById($id);
     }
 
+    final function getUserNotes(Person $person) : array {
+    
+        return $this->repository->getByPerson($person);
+
+    }
+
 }
 
 ?>

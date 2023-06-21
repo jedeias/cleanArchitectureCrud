@@ -33,6 +33,7 @@ class MenuBar {
 
           let img = document.createElement("img");
           img.src = "UX/img/" + option + ".svg";
+          img.alt = `../UX/img/${option}.svg`;
         
           a.appendChild(img);
           div.appendChild(a);

@@ -302,6 +302,23 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE getNoteByPerson(
+    _email VARCHAR (80)
+)
+BEGIN
+    SELECT * FROM people
+    INNER JOIN notes ON (people.pkPeople = notes.fkPeople)
+    WHERE email = _email;
+
+    COMMIT;
+        ROLLBACK;
+
+END $$
+
+DELIMITER ;
+
 CALL deleteNotes(1);
 
 CALL selectNotes();
@@ -309,3 +326,5 @@ CALL selectNotes();
 CALL insertNotes (1, "this is a test of notes procidure");
 
 CALL selectNotes();
+
+call getNoteByPerson("test@test.com");

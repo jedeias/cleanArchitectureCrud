@@ -33,6 +33,8 @@ if(isset($_POST['note']) && $_POST['note'] !== '') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../UX/CSS/note.css" media="screen and (max-width: 601px)">
+    <link rel="stylesheet" href="../UX/CSS/noteDesktop.css" media="screen and (min-width: 602px)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notepad</title>

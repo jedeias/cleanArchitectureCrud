@@ -114,7 +114,7 @@ class RepositoryPeople extends Repository implements repositoryPeopleInterface{
             foreach ($e as $key) {
                 echo"$key";
             }
-            return []; 
+            return ["error"]; 
         }
     }
 }
