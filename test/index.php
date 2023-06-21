@@ -12,6 +12,8 @@
 
         <?php
          
+            require_once ("../src/autoload.php");
+
             // require_once ("../src/autoload.php");
             
             // $person = new Person(); 
@@ -26,7 +28,26 @@
 
             // var_dump($person);
 
+            $repositoryNotes = new RepositiryNotes();
+
+            $notes = $repositoryNotes->getById(2);
             
+            print_r($notes);
+
+            echo "<br><hr><br>";    
+
+            $person = new Person("test", "test@test.com", "password", "M",2);
+
+            $note = new Note($person);
+
+            $note->setNotes("save php test");
+
+            print_r($note);
+
+            // $repositoryNotes->save($note);
+
+            $repositoryNotes->delete(6);
+
         ?>
         
     </pre>

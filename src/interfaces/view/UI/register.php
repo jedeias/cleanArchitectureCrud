@@ -8,12 +8,6 @@ $session->verifySession();
 
 $user = $session->get("user");
 
-echo "<pre>";
-
-// print_r($user); user verification
-
-echo "</pre>";
-
 if($_POST != null){
     
     $repository = new RepositoryPeopleMid();
