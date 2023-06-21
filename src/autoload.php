@@ -4,26 +4,24 @@ function autoload($className) {
         "interfaces/controllers/",
         "interfaces/models/",
         "interfaces/views/",
-        "app/interfaces/controllers/",
-        "app/interfaces/models/",
-        "app/interfaces/views/",
-        "app/infrastructure/database/",
-        "app/infrastructure/persistence/",
+        "app/lib/database/",
+        "app/lib/persistence/",
         "app/domain/Entities/",
         "app/domain/useCases/validations/",
         "app/domain/UseCases/User/",
-        "app/domain/UseCases/Note/",
+        "app/domain/UseCases/notes/",
         "app/domain/Repositories/",
-        "app/domain/UseCases/interfaces/Note/",
+        "app/domain/UseCases/interfaces/Notes/",
         "app/domain/useCases/interfaces/people/",
         "app/domain/useCases/interfaces/authentication/",
-        "src/infrastructure/repositores/",
-        "infrastructure/repositores/people/",
-        "src/infrastructure/authentication/",
-        "src/infrastructure/people/",
+        "app/domain/useCases/notes/",
+        "src/lib/repositores/",
+        "lib/repositores/people/",
+        "src/lib/authentication/",
+        "lib/repositores/notes/",
         "app/domain/useCases/interfaces/",
-        "infrastructure/repositores/",
-        "infrastructure/repositores/authentication/",
+        "lib/repositores/",
+        "lib/repositores/authentication/",
         "interfaces/middleware/",
         "interfaces/controller/",
         "interfaces/model/middleware/",
@@ -36,6 +34,7 @@ function autoload($className) {
             require_once($file);
             return;
         }
+
     }
 }
 

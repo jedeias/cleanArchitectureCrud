@@ -1,6 +1,5 @@
 <?php
 
-
 abstract class Host{
 
     private $host = "localhost";
