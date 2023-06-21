@@ -4,43 +4,43 @@ class RepositoryPeopleMid implements RepositoryPeopleMidInterface{
 
     private repositoryPeopleInterface $repository;
 
-    public function __construct() {
+    final public function __construct() {
         $this->repository = new RepositoryPeople();
     }
  
-    public function savePerson(Person $person) : void {
+    final public function savePerson(Person $person) : void {
         
         $this->repository->save($person);
 
     }
  
-    public function updatePerson(Person $person) : void {
+    final public function updatePerson(Person $person) : void {
         
         $this->repository->update($person);
 
     }
 
-    public function deletePerson($id) : void {
+    final public function deletePerson($id) : void {
         
         $this->repository->delete($id);
 
     }
 
-    public function getPeopleId(Person $person) : array {
+    final public function getPeopleId(Person $person) : array {
         
         $peopleArray = $this->repository->getIdByEmail($person);
 
         return $peopleArray;
     }
 
-    public function getPresonById($id) : array {
+    final public function getPresonById($id) : array {
         
         $presonArray = $this->repository->getById($id);
 
         return $presonArray;
     }
 
-    public function selectAllPeople() : array {
+    final public function selectAllPeople() : array {
         
         $peopleArray = $this->repository->selectPeople();
 

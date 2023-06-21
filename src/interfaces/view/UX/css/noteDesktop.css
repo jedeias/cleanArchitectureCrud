@@ -5,7 +5,7 @@
     
 }
 
-@media screen and (max-width: 601px) {
+@media screen and (min-width: 601px) {
 
     body{
         background-color: #c0b19e;
@@ -43,7 +43,7 @@
         background-color: rgba(119, 134, 235, 0.341);
     }
 
-    .btn {
+    .MenuButton {
         position: fixed;
         bottom: -10px;
         left: -10px !important;
@@ -54,7 +54,7 @@
         text-align: center;
     }
 
-    .btn {
+    .MenuButton, .send{
         background-image: linear-gradient(to right, rgb(224, 118, 118), transparent);
         background-size: 200% auto;
         transition: background-position 0.5s linear;
@@ -67,11 +67,29 @@
     .send{
         position: fixed;
         bottom: -10px;
-        left: -10px !important;
+        right: -10px !important;
         margin: -1px;
         border-radius:  100%;
         height: 70px;
         width: 70px;
         text-align: center;
+    }
+    
+    .NoteWriter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .NoteWriter textarea {
+        width: 50vh;
+        height: 80vh;
+        padding: 0 auto;
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        border: none;
+        outline: none;
+        resize: none;
+        background-color: #f8f8f8;
     }
 }

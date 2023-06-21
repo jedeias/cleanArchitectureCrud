@@ -40,30 +40,31 @@ class Notepad {
         
         let submit = document.createElement("button");
         submit.type = "submit";
+        submit.className = "send";
         submit.innerText = "Submit";
         
         form.appendChild(submit);
     }
 
 
-    footerCreate(){
-        let footer = document.createElement("footer");
+    // footerCreate(){
+    //     let footer = document.createElement("footer");
 
-        let menu = document.createElement("button");
+    //     let menu = document.createElement("button");
 
-        let link = document.createElement("a");
+    //     let link = document.createElement("a");
 
-        link.href = "http://localhost/cleanArchitectureCrud/src/interfaces/view/UI/noteList.php"
+    //     link.href = "http://localhost/cleanArchitectureCrud/src/interfaces/view/UI/noteList.php"
 
-        menu.className = "menuBar";
+    //     menu.className = "menuBar";
 
-        menu.innerHTML = "Note";
+    //     menu.innerHTML = "Note";
 
-        footer.appendChild(menu);
+    //     footer.appendChild(menu);
 
-        this.body.appendChild(footer);
+    //     this.body.appendChild(footer);
 
-    }
+    // }
 
     CreateMenu(){
         let menu = document.createElement("article");
@@ -77,6 +78,10 @@ class Notepad {
         menu.appendChild(button);
 
         let footer = document.createElement("footer");
+
+        button.onclick = () =>{
+            window.location.href = "notes.php";
+        }
 
         footer.appendChild(menu);
 

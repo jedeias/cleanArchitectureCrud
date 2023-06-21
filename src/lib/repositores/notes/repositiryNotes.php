@@ -64,6 +64,24 @@ class RepositiryNotes extends Repository implements repositoryNotesInterface{
             } 
         }
     }
+
+    function getByPerson(Person $person) : array {
+        
+        try {
+
+            $stmt = $this->connect->getConnect()->prepare("CALL getNoteByPerson (:email)");
+            $stmt->bindValue(':email', $person->getEmail());
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            foreach ($e as $key) {
+                echo"$key";
+            }
+            return ["error"]; 
+        }
+    }
+
 }
 
 ?>
