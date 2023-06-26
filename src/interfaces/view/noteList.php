@@ -12,6 +12,8 @@ $repository = new RepositoryPeopleMid();
 
 $peopleArray = $repository->selectAllPeople();
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,7 @@ $peopleArray = $repository->selectAllPeople();
                     <button type='submit'>UPDATE</button>
                     </form>
                     </td>";
-                    echo "<td><a href=''><button>DELETE</button></a></td>";
+                    echo "<td><a href='UI/delete.php?pkPeople=$person[pkPeople] ' onclick='return confirm(\"This action wants to remove this user. Are you right?\")'><button>DELETE</button></a></td>";
                     echo "</tr>";
                 }
 

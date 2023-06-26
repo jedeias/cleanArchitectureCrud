@@ -14,39 +14,57 @@
          
             require_once ("../src/autoload.php");
 
-            // require_once ("../src/autoload.php");
+            require_once ("../src/autoload.php");
             
-            // $person = new Person(); 
+            $person = new Person("joaquim", "test@test.com", "password","sex", 3);
             
-            // $person->setName("joaquim");
+            $person->setName("joaquim");
 
-            // $person->setEmail("tests@test.com");
+            $person->setEmail("teststest.com");
 
-            // $person->setPassword("0123456789000");
+            $person->setPassword("0123456789000");
 
-            // $person->setSex("M");
+            $person->setSex("M");
 
-            // var_dump($person);
+            print_r($person);
 
-            $repositoryNotes = new RepositiryNotes();
+            $personArray =  array("Name" => $person->getName(), 
+                            "Email" => $person->getEmail(), 
+                            "Password" => $person->getPassword(), 
+                            "Sex" => $person->getSex(), 
+                            "AccessLevel" => $person->getAccessLevel());
+        
+            foreach ($personArray as $personCheack => $key) {
+                
+                if ($key == "invalid"){
+                    echo "O elemento". $personCheack. " é ivalido <br>";
+                    
+                    print_r($personCheack);
+                    
+                    //die(header("Refresh: 5; ../noteList.php"));
+                    die();
+                }        
+            }
 
-            $notes = $repositoryNotes->getById(2);
+            // $repositoryNotes = new RepositiryNotes();
+
+            // $notes = $repositoryNotes->getById(2);
             
-            print_r($notes);
+            // print_r($notes);
 
-            echo "<br><hr><br>";    
+            // echo "<br><hr><br>";    
 
-            $person = new Person("test", "test@test.com", "password", "M",2);
+            // $person = new Person("test", "test@test.com", "password", "M",2);
 
-            $note = new Note($person);
+            // $note = new Note($person);
 
-            $note->setNotes("save php test");
+            // $note->setNotes("save php test");
 
-            print_r($note);
+            // print_r($note);
 
-            // $repositoryNotes->save($note);
+            // // $repositoryNotes->save($note);
 
-            $repositoryNotes->delete(6);
+            // $repositoryNotes->delete(6);
 
         ?>
         
