@@ -34,6 +34,10 @@ The project follows the Mobile First approach in design, prioritizing the user e
 
 ## How to Run the Project
 
+```bash
+git clone https://github.com/jedeias/cleanArchitectureCrud
+```
+
 1. Clone this repository to your local environment.
 2. Set up a web server (such as Apache) and a MySQL database.
 3. Import the provided SQL file in the `database` directory to create the database structure.
