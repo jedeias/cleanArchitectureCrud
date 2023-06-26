@@ -12,6 +12,8 @@ $repository = new RepositoryPeopleMid();
 
 $peopleArray = $repository->selectAllPeople();
 
+
+
 ?>
 
 <!DOCTYPE html>

@@ -9,21 +9,35 @@ $session->verifySession();
 $user = $session->get("user");
 
 if($_POST != null){
-    
     $repository = new RepositoryPeopleMid();
-
+    
     $person = new Person($_POST["name"], $_POST["email"], $_POST["password"], $_POST["sex"], $_POST["accessLevel"]);
-
-    $repository->savePerson($person);
-
-    echo"<script>alert('user save was a sucessful')</script>";
-
-    header("Location: ../noteList.php");
-
+    
+    $personArray =  array("Name" => $person->getName(), 
+    "Email" => $person->getEmail(), 
+    "Password" => $person->getPassword(), 
+    "Sex" => $person->getSex(), 
+    "AccessLevel" => $person->getAccessLevel());
+    
+    foreach ($personArray as $personCheack => $key) {
+        
+        if ($key == "invalid"){
+            echo "O elemento". $personCheack. " é ivalido <br>";
+            
+            print_r($personCheack);
+            
+            die(header("Refresh: 5; ../noteList.php"));
+        } 
+        
+        $repository->savePerson($person);
+        
+        echo"<script>alert('user save was a sucessful')</script>";
+        
+        header("Location: ../noteList.php");
+        
+    }
 }
-
-
-
+    
 ?>
 
 <!DOCTYPE html>

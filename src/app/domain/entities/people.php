@@ -30,7 +30,7 @@ abstract class People{
 		
 		$validation = new ValidateEmail();
 
-		$this->email = $validation->characterCheck($email);;
+		$this->email = $validation->characterCheck($email);
 		return $this;
 	}
 
