@@ -7,7 +7,6 @@ class RepositiryNotes extends Repository implements repositoryNotesInterface{
     public function __construct() {
         $this->connect = new Connect();
     }
-
     public function getById($id) : array{
 
         try {
